@@ -4,24 +4,33 @@ import ReactDOM from 'react-dom'
 const Button =(props)=> (
   <button onClick={props.handleClick}>{props.text}</button>
 )
-
+const rando =()=> {
+  const rando = Math.floor(Math.random() * 6)
+  return (
+    rando
+  )
+}
 
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-  const max = 6
-
+  const points = [0,1,2,3,4,5]
+  console.log(selected)
 
   return (
     
     <div>
+      <h1>Anecdote of the day</h1>
       <p>
         {props.anecdotes[selected]}
       </p>
-      <Button handleClick={() => setSelected(Math.floor(Math.random() * 6))} text="next anecdote" />
+      <p>{points[selected]} votes </p>
+      <Button handleClick={() => (points[selected]+=1)} text="vote"/>
+      <Button handleClick={() => setSelected(rando)} text="next anecdote" />
     </div>
   )
 }
+
 
 const anecdotes =[
   'If it hurts, do it more often',
