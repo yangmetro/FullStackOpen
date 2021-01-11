@@ -27,7 +27,6 @@ const App = (props) => {
   const [selected, setSelected] = useState(0);
   const [points, setPoints] = useState(new Array(props.anecdotes.length).fill(0));
   const [max, setMax] = useState(0)
-  console.log(points)
 
   const incrementPoint = () => {
     const copy = [...points];
