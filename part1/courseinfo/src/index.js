@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const Part = (props) =>{
   return (
@@ -8,15 +8,15 @@ const Part = (props) =>{
         {props.part} {props.exercise}
       </p>
     </div>
-  )
-}
+  );
+};
 const Header = (props) => {
   return (
     <div>
         <p>{props.course}</p>
     </div>
-  )
-}
+  );
+};
 
 const Content = (props) => {
   
@@ -26,8 +26,8 @@ const Content = (props) => {
       <Part part={props.parts[1].name} exercise={props.parts[1].exercises}/>
       <Part part={props.parts[2].name} exercise={props.parts[2].exercises}/>
     </div>
-  )
-}
+  );
+};
 
 const Total = (props) => {
   return (
@@ -36,8 +36,8 @@ const Total = (props) => {
         Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}
       </p>
     </div>
-  )
-}
+  );
+};
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -61,7 +61,7 @@ const App = () => {
       <Content parts={parts} />
       <Total parts={parts} />
     </div>
-  )
-}
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'));
