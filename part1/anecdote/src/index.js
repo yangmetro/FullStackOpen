@@ -29,7 +29,7 @@ const App = (props) => {
         {props.anecdotes[selected]}
       </p>
       <p>{points[selected]} votes </p>
-      <Button handleClick={() => incrementPoint} text="vote"/>
+      <Button handleClick={() => incrementPoint()} text="vote"/>
       <Button handleClick={() => setSelected(rando)} text="next anecdote" />
     </div>
   );
