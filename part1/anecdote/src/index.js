@@ -1,35 +1,39 @@
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 
 const Button =(props)=> (
   <button onClick={props.handleClick}>{props.text}</button>
-)
+);
 const rando =()=> {
-  const rando = Math.floor(Math.random() * 6)
+  const rando = Math.floor(Math.random() * 6);
   return (
     rando
-  )
-}
-
+  );
+};
 
 const App = (props) => {
-  const [selected, setSelected] = useState(0)
-  const points = [0,1,2,3,4,5]
-  console.log(selected)
+  const [selected, setSelected] = useState(0);
+  const [points, setPoints] = useState(new Array(props.anecdotes.length).fill(0));
+  console.log(points);
+
+  const incrementPoint = () => {
+    const copy = [...points];
+    copy[selected] += 1;
+    setPoints(copy);
+  };
 
   return (
-    
     <div>
       <h1>Anecdote of the day</h1>
       <p>
         {props.anecdotes[selected]}
       </p>
       <p>{points[selected]} votes </p>
-      <Button handleClick={() => (points[selected]+=1)} text="vote"/>
+      <Button handleClick={() => incrementPoint} text="vote"/>
       <Button handleClick={() => setSelected(rando)} text="next anecdote" />
     </div>
-  )
-}
+  );
+};
 
 
 const anecdotes =[
@@ -39,9 +43,9 @@ const anecdotes =[
   'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
   'Premature optimization is the root of all evil.',
   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
-]
+];
 
 ReactDOM.render(
   <App anecdotes={anecdotes} />,
   document.getElementById('root')
-)
+);
